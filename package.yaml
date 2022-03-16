@@ -1,0 +1,7 @@
+# Toit Package File.
+
+# If no name is set, the title of the README.md is used.
+# name: PACKAGE_NAME
+
+# If no description is given, the first paragraph of the README.md is used.
+# description: PACKAGE_DESCRIPTION
