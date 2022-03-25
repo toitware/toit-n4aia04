@@ -13,6 +13,14 @@ of this README to the package name.
 Either add a `description: ...` entry to the package.yaml or ensure
 that the first paragraph of this README can be used as a description.
 
+## Structure
+Code that should be used by other developers must live in the `src` folder.
+
+Examples should live in `examples`. For bigger examples, or examples that
+use more packages, create a subfolder.
+
+Tests live in the `tests` folder.
+
 ## Copyright
 Don't forget to update the copyright holder in the license files.
 There are (up to) three license files:
@@ -52,9 +60,9 @@ For vscode you could just write `code examples`.
 Install this package as a local package.
 ```
 cd examples
-toit.pkg init
 toit.pkg install --local --name=YOUR_PACKAGE_NAME ..
 ```
+
 This allows examples and tests to import this package as if it was installed
 from the Internet. This way, tests and examples use the same syntax as
 users of the package.
