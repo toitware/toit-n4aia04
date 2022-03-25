@@ -1,14 +1,14 @@
-# Package template
+# MyPackage
 
 A template repository for creating a Toit package.
 
 ## Toit package
 Use `toit.pkg describe` or `toit pkg describe` (depending on which Toit
-variant you use) to see how https://pkg.toit.io extracts package
-information.
+variant you use) to see how https://pkg.toit.io will extract package
+information from your repo when you publish the package.
 
 Either add a `name: ...` entry to the package.yaml or change the title
-of this README to the package name.
+(first line) of this README to the package name.
 
 Either add a `description: ...` entry to the package.yaml or ensure
 that the first paragraph of this README can be used as a description.
@@ -32,20 +32,20 @@ We recommend to use the following Copyright header in `src` files (with your
 copyright):
 
 ```
-// Copyright (C) 2022 Toit language
+// Copyright (C) 2022 Jane/John Doe
 // Use of this source code is governed by an MIT-style license that can be
 // found in the package's LICENSE file.
 ```
 
 Similarly, you can use the following header for tests and examples:
 ```
-// Copyright (C) 2022 Toit language
+// Copyright (C) 2022 Jane/John Doe
 // Use of this source code is governed by a Zero-Clause BSD license that can
 // be found in the tests/TESTS_LICENSE file.
 ```
 and
 ```
-// Copyright (C) 2022 Toit language
+// Copyright (C) 2022 Jane/John Doe
 // Use of this source code is governed by a Zero-Clause BSD license that can
 // be found in the examples/EXAMPLES_LICENSE file.
 ```
@@ -63,7 +63,10 @@ cd examples
 toit.pkg install --local --name=YOUR_PACKAGE_NAME ..
 ```
 
-This allows examples and tests to import this package as if it was installed
+This installs the package located at ".." (here the root of the repository) with
+your package name.
+
+Consequently examples and tests can import the package as if it was installed
 from the Internet. This way, tests and examples use the same syntax as
 users of the package.
 
