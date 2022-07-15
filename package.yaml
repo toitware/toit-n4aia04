@@ -1,5 +1,5 @@
-# Toit Package File.
-
-name: n4aia04
-
-description: Driver for the N4AIA04 voltage and current sensor.
+dependencies:
+  modbus:
+    path: ../pkg-modbus
+  rs485:
+    path: ../toit-rs485

@@ -1,1 +1,7 @@
-# Toit Package File.
+dependencies:
+  modbus:
+    path: ../../pkg-modbus
+  n4aia04:
+    path: ..
+  rs485:
+    path: ../../toit-rs485

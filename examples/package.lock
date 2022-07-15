@@ -1,1 +1,16 @@
-# Toit Lock File.
+prefixes:
+  modbus: pkg-modbus
+  n4aia04: ..
+  rs485: toit-rs485
+packages:
+  ..:
+    path: ..
+    prefixes:
+      modbus: pkg-modbus
+      rs485: toit-rs485
+  pkg-modbus:
+    path: ../../pkg-modbus
+    prefixes:
+      rs485: toit-rs485
+  toit-rs485:
+    path: ../../toit-rs485
