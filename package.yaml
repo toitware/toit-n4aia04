@@ -1,7 +1,5 @@
 # Toit Package File.
 
-# If no name is set, the title of the README.md is used.
-# name: PACKAGE_NAME
+name: n4aia04
 
-# If no description is given, the first paragraph of the README.md is used.
-# description: PACKAGE_DESCRIPTION
+description: Driver for the N4AIA04 voltage and current sensor.

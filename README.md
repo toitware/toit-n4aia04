@@ -1,84 +1,22 @@
-# MyPackage
+# N4AIA04
 
-A template repository for creating a Toit package.
+Driver for the N4AIA04 voltage and current sensor.
 
-## Toit package
-Use `toit.pkg describe` or `toit pkg describe` (depending on which Toit
-variant you use) to see how https://pkg.toit.io will extract package
-information from your repo when you publish the package.
+The N4AIA04 is a voltage and current sensor that is connect through Modbus RTU.
 
-Either add a `name: ...` entry to the package.yaml or change the title
-(first line) of this README to the package name.
+It has 4 sensor pins:
+- V1: measures voltage up to 5V.
+- V2: measures voltage up to 10V.
+- C1: measures current in the 4-20 mA range. Some places in the spec also mention 0-20mA.
+- C2: measures current in the 4-20 mA range.
 
-Either add a `description: ...` entry to the package.yaml or ensure
-that the first paragraph of this README can be used as a description.
+The default baud-rate of the sensor is 9600 baud.
+The default unit id (also known as "server address", or "station address") is 1. However, this
+  driver also comes with a "detect" functionality which finds the unit id, as long as the sensor
+  is the only one connected to the bus.
 
-## Structure
-Code that should be used by other developers must live in the `src` folder.
+## Features and bugs
 
-Examples should live in `examples`. For bigger examples, or examples that
-use more packages, create a subfolder.
+Please file feature requests and bugs at the [issue tracker][tracker].
 
-Tests live in the `tests` folder.
-
-## Copyright
-Don't forget to update the copyright holder in the license files.
-There are (up to) three license files:
-- `LICENSE`: usually MIT
-- `examples/EXAMPLES_LICENSE`: usually BSD0
-- `tests/TESTS_LICENSE`: usually BSD0
-
-We recommend to use the following Copyright header in `src` files (with your
-copyright):
-
-```
-// Copyright (C) 2022 Jane/John Doe
-// Use of this source code is governed by an MIT-style license that can be
-// found in the package's LICENSE file.
-```
-
-Similarly, you can use the following header for tests and examples:
-```
-// Copyright (C) 2022 Jane/John Doe
-// Use of this source code is governed by a Zero-Clause BSD license that can
-// be found in the tests/TESTS_LICENSE file.
-```
-and
-```
-// Copyright (C) 2022 Jane/John Doe
-// Use of this source code is governed by a Zero-Clause BSD license that can
-// be found in the examples/EXAMPLES_LICENSE file.
-```
-
-## Local package
-Examples and tests can have different dependencies than the package. This is,
-why they have their own package.yaml/package.lock.
-
-Open the examples (resp. tests) folder with a separate instance of your IDE.
-For vscode you could just write `code examples`.
-
-Install this package as a local package.
-```
-cd examples
-toit.pkg install --local --name=YOUR_PACKAGE_NAME ..
-```
-
-This installs the package located at ".." (here the root of the repository) with
-your package name.
-
-Consequently examples and tests can import the package as if it was installed
-from the Internet. This way, tests and examples use the same syntax as
-users of the package.
-
-## Publish
-Make sure to run `toit.pkg describe` to verify that the data is correct.
-
-This repository comes with a `.github/workflows/publish.xml` file which automatically
-publishes the Toit package for every release. You can just draft a new release on
-Github.
-It is important that the release has a semver tag (like `v1.2.3`).
-
-Alternatively, a package can be published by hand:
-0. Ensure that everything looks good (`toit.pkg describe`).
-1. Add a semver tag (like `v1.0.0`).
-2. Go to https://pkg.toit.io/publish and submit your package.
+[tracker]: https://github.com/toitware/toit-n4aia04/issues
