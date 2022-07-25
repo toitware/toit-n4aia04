@@ -22,16 +22,14 @@ We expect to measure 1.1V at V1, and 2.2V at V2 (when Pin26 is high).
 
 # Current sensor
 
-Note: we weren't able to measure the correct current. It seems like the sensor has
-an internal resistance of ~200Ohm, thus falsifying the result.
-This test works under this assumption.
+Note that the sensor has a internal loop resistance of ~200 Ohm.
 
 Connect 5V directly to a 330Ohm resistor, and connect the other side to C1.
 
 Connect pin25 to a 330Ohm resistor, and connect the other side to C2.
 
-We expect to measure 5V/330Ohm = 15mA at C1.
-When pin25 is high we expect to measure 3.3V/330Ohm = 10mA at C2.
+We expect to measure 5V/(200 + 330)Ohm = 9.5mA at C1.
+When pin25 is high we expect to measure 3.3V/(200 + 330)Ohm = 6.2mA at C2.
 */
 
 import expect show *
@@ -94,43 +92,38 @@ main:
   expect_equals 1.0 sensor.read_correction_c1
   expect_equals 1.0 sensor.read_correction_c2
 
-  // These corrections should not be necessary, but the sensor seems to limit the current
-  // that goes through it.
-  sensor.set_correction_c1 1.64
-  sensor.set_correction_c2 1.64
-
   print "V1: $sensor.read_v1  - should be 0V"
   print "V2: $sensor.read_v2  - should be 0V"
-  print "C1: $sensor.read_c1  - should be 15mA"
+  print "C1: $sensor.read_c1  - should be 9.5mA"
   print "C2: $sensor.read_c2  - should be 0mA"
 
   expect 0 <= sensor.read_v1 <= 0.15
   expect 0 <= sensor.read_v2 <= 0.15
-  // C1 is constantly connected to V5 and a 330Ohm resistor -> 15mA.
-  expect 0.014 <= sensor.read_c1 <= 0.016
+  // C1 is constantly connected to V5 and a (200 + 330)Ohm resistor -> 9.5mA.
+  expect 0.0085 <= sensor.read_c1 <= 0.0105
   expect 0.0 <= sensor.read_c2 <= 0.0015
 
   voltage_test_pin.set 1
   print "V1: $sensor.read_v1  - should be 1.1V"
   print "V2: $sensor.read_v2  - should be 2.2V"
-  print "C1: $sensor.read_c1  - should be 15mA"
+  print "C1: $sensor.read_c1  - should be 9.5mA"
   print "C2: $sensor.read_c2  - should be 0mA"
 
   expect 1.0 <= sensor.read_v1 <= 1.2
   expect 2.0 <= sensor.read_v2 <= 2.4
-  expect 0.014 <= sensor.read_c1 <= 0.016
+  expect 0.0085 <= sensor.read_c1 <= 0.0105
   expect 0.0 <= sensor.read_c2 <= 0.0015
 
   current_test_pin.set 1
   print "V1: $sensor.read_v1  - should be 1.1V"
   print "V2: $sensor.read_v2  - should be 2.2V"
-  print "C1: $sensor.read_c1  - should be 15mA"
-  print "C2: $sensor.read_c2  - should be 10mA"
+  print "C1: $sensor.read_c1  - should be 9.5mA"
+  print "C2: $sensor.read_c2  - should be 6.2mA"
 
   expect 1.0 <= sensor.read_v1 <= 1.2
   expect 2.0 <= sensor.read_v2 <= 2.4
-  expect 0.014 <= sensor.read_c1 <= 0.016
-  expect 0.009 <= sensor.read_c2 <= 0.011
+  expect 0.0085 <= sensor.read_c1 <= 0.0105
+  expect 0.0052 <= sensor.read_c2 <= 0.0072
 
   old_id := n4aia04.N4aia04.detect_unit_id bus
   print "current unit id: $old_id"
