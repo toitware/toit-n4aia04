@@ -1,1 +1,20 @@
-# Toit Lock File.
+prefixes:
+  modbus: pkg-modbus
+  n4aia04: ..
+  rs485: toit-rs485
+packages:
+  ..:
+    path: ..
+    prefixes:
+      modbus: pkg-modbus
+      rs485: toit-rs485
+  pkg-modbus:
+    url: github.com/toitlang/pkg-modbus
+    version: 2.0.0
+    hash: d720a4ca98faee9c4884b4042120347365ca832a
+    prefixes:
+      rs485: toit-rs485
+  toit-rs485:
+    url: github.com/toitware/toit-rs485
+    version: 1.0.0
+    hash: 2e8d0ae08c97a5dcba69b4e438408ef374c2c63f
