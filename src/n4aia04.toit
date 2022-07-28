@@ -35,9 +35,20 @@ class N4aia04:
 
   registers_/modbus.HoldingRegisters
 
+  /**
+  Creates a new N4AIA04 driver.
+
+  The given Modbus $station must be a N4AIA04 device.
+  */
   constructor station/modbus.Station:
     registers_ = station.holding_registers
 
+  /**
+  Creates a new N4AIA04 driver.
+
+  Uses $detect_unit_id to find the unit id of the N4AIA04 device.
+  The N4AIA04 device must be the only device on the bus.
+  */
   constructor.detect bus/modbus.Modbus:
     id := detect_unit_id bus
     return N4aia04 (bus.station id)
