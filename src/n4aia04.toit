@@ -38,7 +38,6 @@ class N4aia04:
   constructor station/modbus.Station:
     registers_ = station.holding_registers
 
-
   constructor.detect bus/modbus.Modbus:
     id := detect_unit_id bus
     return N4aia04 (bus.station id)
@@ -298,8 +297,6 @@ class N4aia04:
     else if baud_rate == 19200: register_value = BAUD_RATE_19200_
     else: throw "INVALID_ARGUMENT"
     write_ --address=BAUD_RATE_ register_value
-
-
 
   read_ address/int -> int:
     // Note that the N4aia04 must use function 0x03 (read holding registers) and 0x06 (write single holding register).

@@ -1,7 +1,9 @@
 dependencies:
   modbus:
-    path: ../../pkg-modbus
+    url: github.com/toitlang/pkg-modbus
+    version: ^2.0.0
   n4aia04:
     path: ..
   rs485:
-    path: ../../toit-rs485
+    url: github.com/toitware/toit-rs485
+    version: ^1.0.0
