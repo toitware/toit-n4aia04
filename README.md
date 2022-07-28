@@ -11,9 +11,18 @@ It has 4 sensor pins:
 - C2: measures current in the 4-20 mA range.
 
 The default baud-rate of the sensor is 9600 baud.
+
 The default unit id (also known as "server address", or "station address") is 1. However, this
-  driver also comes with a "detect" functionality which finds the unit id, as long as the sensor
-  is the only one connected to the bus.
+driver also comes with a "detect" functionality which finds the unit id, as long as the sensor
+is the only one connected to the bus.
+
+## Board information
+
+VIN/GND takes DC 8-25V.
+
+The current sensor has an internal loop resistance of ~200 Ohm.
+
+https://webshop.domoticx.nl/index.php?route=extension/module/free_downloads/download&did=514
 
 ## Features and bugs
 
