@@ -3,7 +3,7 @@ description: Driver for the N4AIA04 voltage and current sensor.
 dependencies:
   modbus:
     url: github.com/toitlang/pkg-modbus
-    version: ^2.0.0
+    version: ^2.0.1
   rs485:
     url: github.com/toitware/toit-rs485
-    version: ^1.0.0
+    version: ^1.0.1
