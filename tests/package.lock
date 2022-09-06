@@ -10,8 +10,8 @@ packages:
       rs485: toit-rs485
   pkg-modbus:
     url: github.com/toitlang/pkg-modbus
-    version: 2.0.1
-    hash: c09286901e2ddccddd6047b02f80fb354854b53e
+    version: 2.1.0
+    hash: 854116ca61a1f6807441b0634a2436290bf44bda
     prefixes:
       rs485: toit-rs485
   toit-rs485:

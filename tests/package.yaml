@@ -1,7 +1,7 @@
 dependencies:
   modbus:
     url: github.com/toitlang/pkg-modbus
-    version: ^2.0.1
+    version: ^2.1.0
   n4aia04:
     path: ..
   rs485:

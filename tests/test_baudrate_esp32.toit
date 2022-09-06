@@ -48,7 +48,7 @@ main:
       --tx=pin_tx
       --rts=pin_rts
       --baud_rate=from_baudrate
-  bus := modbus.Modbus.rtu rs485_bus --baud_rate=from_baudrate
+  bus := modbus.Modbus.rtu rs485_bus
 
   // Assume that the sensor is the only one on the bus.
   sensor := n4aia04.N4aia04.detect bus
